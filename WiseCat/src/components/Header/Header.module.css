@@ -1,0 +1,5 @@
+.header_container {
+    display: flex;
+    padding: 10px 30px;
+    height: 80px;
+}

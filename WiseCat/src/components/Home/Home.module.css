@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Henny+Penny&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
+
+.home_container {
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.text_container {
+    max-width: 180px;
+}
+
+.home_container h1 {
+    color: #fff;
+    margin: 0;
+    text-align: left;
+    font-weight: 200;
+    font-family: 'Baloo 2', cursive;
+    line-height: 27px;
+}
+
+.home_container p {
+    color: #FAB531;
+    font-size: 100px;
+    font-weight: bold;
+    font-family: 'Henny Penny', cursive;
+    margin: 0px 0px 50px 8px;
+    line-height: 100px;
+}
+
+
+/*image animation - floating */ 
+
+.home_container img {
+    margin-left: 50px;
+    transform: translateY(0px);
+    animation: float 5s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}

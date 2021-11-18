@@ -1,0 +1,11 @@
+.btn {
+    width: 200px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    background-color: #5E2B4A;
+    color: #fff;
+    font-size: 18px;
+    font-family: 'Baloo 2', cursive;
+    cursor: pointer;
+}
