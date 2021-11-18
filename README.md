@@ -1,4 +1,4 @@
-#WiseCat
+# WiseCat
 Projeto desenvolvido como forma de fixar o aprendizado da biblioteca React. Seu objetivo é simples: gerar conselhos aleatórios com fotinhos de gatos :3
 
 Linguagens e ferramentas utilizadas:
