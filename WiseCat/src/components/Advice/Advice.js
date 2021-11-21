@@ -8,35 +8,31 @@ function Advices() {
     const [advice, setAdvice] = useState()
     const [cat, setCat] = useState()
 
-    function newAdvice() {
-
-        setTimeout(() => {
-            
-            fetch('https://api.adviceslip.com/advice')
-            .then(res => res.json())
-            .then(res => {
-                setAdvice(res.slip.advice)
-            })
-            .catch(err => console.log(err))
-
-        }, 1000)
-
-        fetch('https://api.thecatapi.com/v1/images/search')
-        .then(res => res.json())
-        .then(cats => {
-            setCat(cats[0].url)
-        })
-        .catch(err => console.log(err))
-        
+   async function newAdvice() {
+        const response = await fetch('https://api.adviceslip.com/advice')
+        const data = await response.json()
+        return data.slip.advice
     }
 
+    async function newCat() { 
+        const response = await fetch('https://api.thecatapi.com/v1/images/search')
+        const data = await response.json()
+        return data[0].url
+    }
+
+    async function loadData() {
+        const [advice, cat] = await Promise.all([
+            newAdvice(), 
+            newCat()
+        ])
+    
+        setAdvice(advice)
+        setCat(cat)
+    }
+    
     useEffect(() => {
-        newAdvice()
-    }, [])
-
-    function refresh() {
-        newAdvice()
-    }
+        loadData()
+    },[])
 
     return (
         <>
@@ -48,9 +44,9 @@ function Advices() {
                             <blockquote>"{advice}"</blockquote>
                             <span>- Cat</span>
                         </div>
-                        <LinkButton event={refresh} text="New Advice"></LinkButton>
+                        <LinkButton event={loadData} text="New Advice"></LinkButton>
                     </div>
-                    <img src={cat} alt="" />
+                    <img src={cat} alt="cat picture" />
                 </div>
             </div>
         </>
