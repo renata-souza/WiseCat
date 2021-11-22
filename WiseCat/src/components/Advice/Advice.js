@@ -7,6 +7,7 @@ function Advices() {
 
     const [advice, setAdvice] = useState()
     const [cat, setCat] = useState()
+    const [imageLoaded, setImageLoaded] = useState(false)
 
    async function newAdvice() {
         const response = await fetch('https://api.adviceslip.com/advice')
@@ -21,6 +22,8 @@ function Advices() {
     }
 
     async function loadData() {
+        setImageLoaded(false)
+        
         const [advice, cat] = await Promise.all([
             newAdvice(), 
             newCat()
@@ -39,14 +42,16 @@ function Advices() {
             <Header />
             <div className={styles.advice_container}>
                 <div className={styles.advice}>
-                    <div className={styles.advice_area}>
-                        <div className={styles.advice_text}>
-                            <blockquote>"{advice}"</blockquote>
-                            <span>- Cat</span>
+                    <img src={cat} className={imageLoaded ? styles.visible : styles.hidden} alt="cat" onLoad={() => setImageLoaded(true)}
+                    />
+                    {imageLoaded ? (
+                        <div className={styles.advice_area}>
+                                <p>"{advice}"</p>
+                            <LinkButton event={loadData} text="New Advice"></LinkButton>
                         </div>
-                        <LinkButton event={loadData} text="New Advice"></LinkButton>
-                    </div>
-                    <img src={cat} alt="cat picture" />
+                    ) : (
+                        <span>Loading...</span>
+                    )}
                 </div>
             </div>
         </>

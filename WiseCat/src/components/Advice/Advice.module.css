@@ -7,49 +7,53 @@
 }
 
 .advice {
-    margin: 20px 0;
-    width: 60%;
+    margin: 20px;
+    max-width: 80vw;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     background-color: #A77BD5;
     padding: 20px;
     border-radius: 10px;
+    flex-wrap: wrap;
 }
 
 .advice img {
-    max-width: 300px;
+    max-width: 290px;
 }
 
 .advice_area {
-    width: 40%;
+    max-width: 90%;
     display: flex;
     flex-direction: column;
-    
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 }
 
 .advice_area button {
     align-self: center;
-    margin-top: 20%;
 }
 
-.advice_text {
-    display: flex;
-    flex-direction: column;
-}
-
-.advice_text blockquote {
+.advice_area p {
     font-family: 'Nunito', sans-serif;
     font-size: 20px;
     color: #fff;
-    margin: 0;
-    margin-top: 20%;
+    margin: 20px 10px;
+    padding: 0 5px;
+    word-wrap: break-word;
 }
 
-.advice_text span {
+.advice span {
     color: #fff;
     margin-top: 15px;
     margin-right: 20px;
     align-self: flex-end;
+}
+
+.visible {
+    opacity: 1;
+}
+
+.hidden {
+    opacity: 0;
 }
 

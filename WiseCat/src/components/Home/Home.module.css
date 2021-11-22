@@ -2,11 +2,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Baloo+2&display=swap');
 
 .home_container {
-    min-height: 600px;
+    height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    flex-wrap: wrap;
+}
+
+.home_container button {
+    margin-bottom: 30px;
 }
 
 .text_container {
@@ -35,7 +39,6 @@
 /*image animation - floating */ 
 
 .home_container img {
-    margin-left: 50px;
     transform: translateY(0px);
     animation: float 5s ease-in-out infinite;
 }
